@@ -14,7 +14,7 @@ const app = express();
 
 // Specific origin instead of wildcard
 const corsOptions = {
-  origin: 'http://localhost:5173', // Your frontend URL
+  origin: ['http://localhost:5173', 'https://final-brown-six.vercel.app'],// Your frontend URL
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
