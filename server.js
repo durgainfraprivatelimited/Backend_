@@ -14,7 +14,11 @@ const app = express();
 
 // Specific origin instead of wildcard
 const corsOptions = {
-  origin: ['https://www.shrivagdeviconstructions.com/','https://shrivagdeviconstructions.vercel.app'],// Both production and development URLs
+  origin: [
+    'https://final-brown-six.vercel.app',
+    'http://localhost:5173',
+    'https://www.shrivagdeviconstructions.com'
+  ],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
@@ -25,7 +29,11 @@ app.use(cors(corsOptions));
 
 // Update the CORS headers middleware
 app.use((req, res, next) => {
-  const allowedOrigins = ['https://final-brown-six.vercel.app', 'https://www.shrivagdeviconstructions.com'];
+  const allowedOrigins = [
+    'https://final-brown-six.vercel.app',
+    'http://localhost:5173',
+    'https://www.shrivagdeviconstructions.com'
+  ];
   const origin = req.headers.origin;
   
   if (allowedOrigins.includes(origin)) {
