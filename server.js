@@ -14,7 +14,7 @@ const app = express();
 
 // Specific origin instead of wildcard
 const corsOptions = {
-  origin: ['https://shrivagdeviconstructions.com','https://shrivagdeviconstructions.vercel.app'],// Both production and development URLs
+  origin: ['https://www.shrivagdeviconstructions.com/','https://shrivagdeviconstructions.vercel.app'],// Both production and development URLs
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
