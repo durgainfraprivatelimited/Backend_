@@ -14,7 +14,7 @@ const app = express();
 
 // Specific origin instead of wildcard
 const corsOptions = {
-  origin: ['https://final-brown-six.vercel.app', 'http://localhost:5173','https://shrivagdeviconstructions.vercel.app'],// Both production and development URLs
+  origin: ['https://shrivagdeviconstructions.com', 'http://localhost:5173','https://shrivagdeviconstructions.vercel.app'],// Both production and development URLs
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
