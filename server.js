@@ -14,7 +14,7 @@ const app = express();
 
 // Specific origin instead of wildcard
 const corsOptions = {
-  origin: 'https://final-brown-six.vercel.app',// Your frontend URL
+  origin: ['https://final-brown-six.vercel.app', 'http://localhost:5173'],// Both production and development URLs
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
@@ -23,9 +23,15 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-// Remove the previous middleware that set '*' and replace with specific origin
+// Update the CORS headers middleware
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin','https://final-brown-six.vercel.app');
+  const allowedOrigins = ['https://final-brown-six.vercel.app', 'http://localhost:5173'];
+  const origin = req.headers.origin;
+  
+  if (allowedOrigins.includes(origin)) {
+    res.header('Access-Control-Allow-Origin', origin);
+  }
+  
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
   res.header('Access-Control-Allow-Credentials', 'true');
